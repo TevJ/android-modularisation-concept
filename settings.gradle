@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':weathermodule', ':filmmodule', ':coremodule', ':filmbinder'
 rootProject.name='ModularisationConcept'
