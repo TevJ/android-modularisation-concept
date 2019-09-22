@@ -1,7 +1,26 @@
 package com.techtev.modularisationconcept
 
-import android.app.Application
+import com.techtev.coremodule.di.BaseComponent
+import com.techtev.coremodule.di.DaggerBaseComponent
+import com.techtev.modularisationconcept.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class ModularisationConcept : Application() {
+class ModularisationConcept : DaggerApplication() {
 
+    private lateinit var baseComponent: BaseComponent
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder()
+            .application(this)
+            .baseComponent(provideBaseComponent())
+            .build()
+    }
+
+    private fun provideBaseComponent(): BaseComponent {
+        if (!::baseComponent.isInitialized) {
+            val baseComponent = DaggerBaseComponent.create()
+        }
+        return baseComponent
+    }
 }

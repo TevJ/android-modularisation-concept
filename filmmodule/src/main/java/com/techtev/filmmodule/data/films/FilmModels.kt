@@ -1,4 +1,4 @@
-package com.techtev.filmmodule.data.Films
+package com.techtev.filmmodule.data.films
 
 import com.squareup.moshi.JsonClass
 import com.techtev.filmbinder.Film

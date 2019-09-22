@@ -1,4 +1,4 @@
-package com.techtev.filmmodule.data.Films
+package com.techtev.filmmodule.data.films
 
 import com.techtev.coremodule.base.Lse
 import com.techtev.filmbinder.Film

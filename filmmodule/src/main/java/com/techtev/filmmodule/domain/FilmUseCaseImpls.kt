@@ -6,7 +6,7 @@ import com.techtev.coremodule.base.Lse
 import com.techtev.coremodule.base.UseCaseImpl
 import com.techtev.filmbinder.Film
 import com.techtev.filmbinder.GetFilmsUseCase
-import com.techtev.filmmodule.data.Films.FilmsRepository
+import com.techtev.filmmodule.data.films.FilmsRepository
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Scheduler
 import javax.inject.Inject
