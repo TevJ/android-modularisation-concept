@@ -19,7 +19,7 @@ class ModularisationConcept : DaggerApplication() {
 
     private fun provideBaseComponent(): BaseComponent {
         if (!::baseComponent.isInitialized) {
-            val baseComponent = DaggerBaseComponent.create()
+            baseComponent = DaggerBaseComponent.create()
         }
         return baseComponent
     }

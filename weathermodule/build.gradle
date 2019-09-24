@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -35,7 +37,28 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.6.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.moshi:moshi:1.8.0'
+    implementation 'com.squareup.moshi:moshi-adapters:1.8.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+
+    // Dagger
+    implementation 'com.google.dagger:dagger:2.24'
+    kapt 'com.google.dagger:dagger-compiler:2.24'
+    implementation 'com.google.dagger:dagger-android:2.24'
+    implementation 'com.google.dagger:dagger-android-support:2.24'
+
+    //Jetpack
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 
     implementation project(path: ':coremodule')
+    implementation project(path: ':weatherbinder')
 }

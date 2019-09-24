@@ -7,7 +7,12 @@ import io.reactivex.rxjava3.observers.DisposableObserver
 import java.util.concurrent.Executor
 
 interface UseCase<T, Args> {
-    fun execute(observer: DisposableObserver<T>, args: Args)
+    fun execute(
+        onNext: (T) -> Unit,
+        onComplete: () -> Unit,
+        onError: (exception: Throwable?) -> Unit,
+        args: Args
+    )
     fun dispose()
 }
 
@@ -19,12 +24,30 @@ abstract class UseCaseImpl<T, Args>(
 
     abstract fun buildUseCaseObservable(args: Args): Observable<T>
 
-    override fun execute(observer: DisposableObserver<T>, args: Args) {
+    final override fun execute(
+        onNext: (T) -> Unit,
+        onComplete: () -> Unit,
+        onError: (exception: Throwable?) -> Unit,
+        args: Args
+    ) {
+        val observer = object : DisposableObserver<T>() {
+            override fun onComplete() {
+                onComplete()
+            }
+
+            override fun onNext(t: T) {
+                onNext(t)
+            }
+
+            override fun onError(e: Throwable?) {
+                onError(e)
+            }
+        }
         val observable = buildUseCaseObservable(args)
             .subscribeOn(subscribeScheduler)
             .observeOn(observeScheduler)
         compositeDisposable.add(observable.subscribeWith(observer))
     }
 
-    override fun dispose() = compositeDisposable.dispose()
+    final override fun dispose() = compositeDisposable.dispose()
 }

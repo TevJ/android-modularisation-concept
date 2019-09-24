@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/coremodule" />
             <option value="$PROJECT_DIR$/filmbinder" />
             <option value="$PROJECT_DIR$/filmmodule" />
+            <option value="$PROJECT_DIR$/weatherbinder" />
             <option value="$PROJECT_DIR$/weathermodule" />
           </set>
         </option>

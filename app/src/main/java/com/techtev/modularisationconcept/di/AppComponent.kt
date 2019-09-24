@@ -12,7 +12,12 @@ import dagger.android.AndroidInjector
 @AppScope
 @Component(
     dependencies = [BaseComponent::class],
-    modules = [AndroidInjectionModule::class, FilmInjectionModule::class]
+    modules = [
+        AndroidInjectionModule::class,
+        FilmInjectionModule::class,
+        WeatherInjectionModule::class,
+        MainActivityModule::class
+    ]
 )
 interface AppComponent: AndroidInjector<ModularisationConcept> {
     @Component.Builder

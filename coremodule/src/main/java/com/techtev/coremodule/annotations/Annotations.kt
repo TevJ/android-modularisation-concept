@@ -1,11 +1,14 @@
 package com.techtev.coremodule.annotations
 
+import javax.inject.Qualifier
 import javax.inject.Scope
 
-@Target(AnnotationTarget.PROPERTY)
+@Qualifier
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION)
 annotation class SubscribeOn
 
-@Target(AnnotationTarget.PROPERTY)
+@Qualifier
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION)
 annotation class ObserveOn
 
 @Scope
@@ -14,4 +17,12 @@ annotation class AppScope
 
 @Scope
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
+annotation class MainActivityScope
+
+@Scope
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 annotation class FilmScope
+
+@Scope
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
+annotation class WeatherScope

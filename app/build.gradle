@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -22,6 +24,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -42,6 +47,14 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.24'
     implementation 'com.google.dagger:dagger-android-support:2.24'
     kapt 'com.google.dagger:dagger-android-processor:2.24'
+
+    //Jetpack
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 
     implementation project(path: ':weathermodule')
     implementation project(path: ':filmmodule')
