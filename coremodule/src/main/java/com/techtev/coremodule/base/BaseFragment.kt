@@ -1,5 +1,5 @@
 package com.techtev.coremodule.base
 
-import androidx.fragment.app.Fragment
+import dagger.android.support.DaggerFragment
 
-open class BaseFragment : Fragment()
+open class BaseFragment : DaggerFragment()

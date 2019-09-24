@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techtev.modularisationconcept">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ModularisationConcept"
         android:allowBackup="true"

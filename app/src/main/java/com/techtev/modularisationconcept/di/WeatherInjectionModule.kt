@@ -9,6 +9,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class WeatherInjectionModule {
     @WeatherScope
-    @ContributesAndroidInjector(modules = [WeatherDataModule::class])
+    @ContributesAndroidInjector
     abstract fun weatherFragment(): WeatherFragment
 }

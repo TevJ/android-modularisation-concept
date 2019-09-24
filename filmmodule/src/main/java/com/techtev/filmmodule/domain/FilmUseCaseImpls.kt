@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 class GetFilmsUseCaseImpl @Inject constructor(
     private val filmsRepository: FilmsRepository,
-    @SubscribeOn val subscribeScheduler: Scheduler,
-    @ObserveOn val observeScheduler: Scheduler
+    @param:SubscribeOn val subscribeScheduler: Scheduler,
+    @param:ObserveOn val observeScheduler: Scheduler
 ) : UseCaseImpl<Lse<List<Film>>, Unit>(subscribeScheduler, observeScheduler), GetFilmsUseCase {
 
     override fun buildUseCaseObservable(args: Unit): Observable<Lse<List<Film>>> {

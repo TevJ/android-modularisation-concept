@@ -1,5 +1,6 @@
 package com.techtev.filmmodule.di
 
+import com.techtev.coremodule.annotations.FilmType
 import com.techtev.filmmodule.data.films.FilmsApi
 import dagger.Module
 import dagger.Provides
@@ -10,5 +11,5 @@ import retrofit2.Retrofit
 class FilmDataModule {
     @Provides
     @Reusable
-    fun provideFilmApi(retrofit: Retrofit): FilmsApi = retrofit.create(FilmsApi::class.java)
+    fun provideFilmApi(@FilmType retrofit: Retrofit): FilmsApi = retrofit.create(FilmsApi::class.java)
 }

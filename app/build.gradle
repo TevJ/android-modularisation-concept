@@ -58,5 +58,7 @@ dependencies {
 
     implementation project(path: ':weathermodule')
     implementation project(path: ':filmmodule')
-    implementation project(path: ':coremodule')
+    api project(path: ':coremodule')
+    implementation project(path: ':filmbinder')
+    implementation project(path: ':weatherbinder')
 }

@@ -5,6 +5,7 @@ import com.techtev.filmbinder.Film
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
+// API key from https://developers.themoviedb.org/ required
 const val API_KEY = ""
 
 class FilmsRepository @Inject constructor(private val filmsApi: FilmsApi) {

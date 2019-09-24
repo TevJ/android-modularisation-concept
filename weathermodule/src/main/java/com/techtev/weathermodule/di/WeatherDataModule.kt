@@ -1,5 +1,6 @@
 package com.techtev.weathermodule.di
 
+import com.techtev.coremodule.annotations.WeatherType
 import com.techtev.weathermodule.data.weather.WeatherApi
 import dagger.Module
 import dagger.Provides
@@ -10,5 +11,5 @@ import retrofit2.Retrofit
 class WeatherDataModule {
     @Provides
     @Reusable
-    fun provideWeatherApi(retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
+    fun provideWeatherApi(@WeatherType retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
 }

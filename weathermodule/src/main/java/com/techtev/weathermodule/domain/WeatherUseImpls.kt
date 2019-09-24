@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 class GetWeatherForCityUseCaseImpl @Inject constructor(
     private val weatherRepository: WeatherRepository,
-    @SubscribeOn val subscribeScheduler: Scheduler,
-    @ObserveOn val observeScheduler: Scheduler
+    @param:SubscribeOn val subscribeScheduler: Scheduler,
+    @param:ObserveOn val observeScheduler: Scheduler
 ) : UseCaseImpl<Lse<Weather>, String>(subscribeScheduler, observeScheduler), GetWeatherForCityUseCase {
 
     override fun buildUseCaseObservable(args: String): Observable<Lse<Weather>> {
